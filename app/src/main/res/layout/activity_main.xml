@@ -4,10 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@drawable/background_black">//adding the background
+    android:background="@drawable/background_black"
+    tools:context=".MainActivity">//adding the background
+
+    <!--
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="261dp"
+        android:layout_height="424dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="1dp">
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+-->
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
         android:layout_height="180dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -15,56 +28,59 @@
 
         <ImageView
             android:id="@+id/icon_ImageView"
-            android:layout_width="40dp"
-            android:layout_height="112dp"
+            android:layout_width="46dp"
+            android:layout_height="87dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_local_florist_24px"
-            tools:layout_editor_absoluteX="189dp"
-            tools:layout_editor_absoluteY="34dp" />
+            tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/maintext_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="28dp"
             android:fontFamily="@font/abril_fatface"
             android:text="TIPCalculator"
             android:textColor="#DBD3D3"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/icon_ImageView"
             app:layout_editor_absoluteX="164dp"
             app:layout_editor_absoluteY="110dp" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/bill_edittext"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="-16dp"
-        tools:layout_editor_absoluteY="0dp">
-
-        <EditText
-            android:id="@+id/bill_edittext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Bill Amount"
-            android:inputType="textPersonName"
-            android:text="Bill"
-            android:textColor="@color/colorTextBody"
-            tools:layout_editor_absoluteX="99dp"
-            tools:layout_editor_absoluteY="223dp" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_marginTop="60dp"
+        android:ems="10"
+        android:hint="Bill Amount"
+        android:inputType="textPersonName"
+        android:textColor="@color/colorTextBody"
+        android:textColorHint="#BEB8B8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        tools:ignore="MissingConstraints" />
 
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:background="#EBE3E3"
-        tools:layout_editor_absoluteX="113dp"
-        tools:layout_editor_absoluteY="283dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/people_edittext" />
 
     <EditText
         android:id="@+id/people_edittext"
@@ -73,29 +89,41 @@
         android:ems="10"
         android:hint="Number of people"
         android:inputType="textPersonName"
-        android:text="People"
         android:textColor="@color/colorTextBody"
-        android:textColorHint="#1F1B1B"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="297dp" />
+        android:textColorHint="#BEB8B8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="130dp"
         android:layout_height="50dp"
+        android:layout_marginTop="44dp"
         android:background="#64DD17"
         android:text="CALCULATE"
-        tools:layout_editor_absoluteX="140dp"
-        tools:layout_editor_absoluteY="368dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bill_edittext" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="262dp"
-        android:layout_height="231dp"
-        android:text="TextView"
+        android:id="@+id/output"
+        android:layout_width="265dp"
+        android:layout_height="151dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginBottom="16dp"
+        android:text=""
         android:textColor="@color/colorTextBody"
-        tools:layout_editor_absoluteX="74dp"
-        tools:layout_editor_absoluteY="484dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <!--app:layout_constraintTop_toBottomOf="@+id/button" -->
+        app:layout_constraintVertical_bias="0.804" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
